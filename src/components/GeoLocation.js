@@ -4,9 +4,9 @@ import 'leaflet/dist/leaflet.css'
 
 
 const GeoLocation = () => {
-    const position = [51.505, -0.09]
+    const position = [4.6487085, -74.0700707]
     return (
-        <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+        <MapContainer center={position} zoom={14} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

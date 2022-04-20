@@ -71,7 +71,7 @@ const Carrito = () => {
                                 <img src={producto.foto} alt="" />
                                 <h2>{producto.nombre}</h2>
                                 <h2><strong>${(parseInt(producto.precio) * producto.cantidad)}.00</strong></h2>
-                                <button onClick={() => modal2abrir(producto)}>Cantidad: {producto.cantidad}</button>
+                                <h2 onClick={() => modal2abrir(producto)}>Cantidad: {producto.cantidad}</h2>
                                 <button onClick={() => handleDelete(producto.codigo)}>Eliminar</button>
                             </div>
                             <hr />
@@ -82,7 +82,7 @@ const Carrito = () => {
             </div>
             {
                 modal2 === true ?
-                    <div >
+                    <div className='cambiarCantidad'>
                         <ProductoCarrito producto={productoEditar} />
                         <button onClick={() => setModal2(false)}>Cerrar</button>
                     </div>
