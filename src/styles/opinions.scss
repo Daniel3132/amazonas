@@ -1,0 +1,23 @@
+.opinions{
+    margin: 5%;
+    width: 50%;
+    h1{
+        margin: 2rem 0;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        div{
+            flex-direction: row;
+            align-items: center;
+        }
+        img{
+            width: 56px;
+            height: 56px;
+        }
+        span{
+            color: grey;
+        }
+    }
+}

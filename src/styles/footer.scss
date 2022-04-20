@@ -1,0 +1,25 @@
+footer {
+    background-color: var(--backgroundSoftBlue);
+    color: white; 
+    font-size: xx-small;
+    width: 98.4vw;
+    padding-top: 5%;
+    height: fit-content;
+    padding-bottom: 1rem;
+    div {
+        display: flex;
+        justify-content: space-between;
+        ul {
+            list-style: none;
+            width: 100%;
+            p {
+                margin-bottom: 1rem;
+                font-weight: 700;
+            }
+        }
+    }
+    .footerImgCont {
+        margin: 15vh auto;
+        width: fit-content;
+    }
+}

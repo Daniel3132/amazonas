@@ -1,0 +1,57 @@
+.formulario {
+    font-size: larger;
+    background-color: white;
+    color: black;
+    margin: 1.5rem auto;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid grey;
+    padding: 5%;
+    border-radius: 15px;
+    h1 {
+        padding: 2rem;
+        font-size: 22px;
+    }
+    input {
+        height: 2.5rem;
+        border-radius: 8px;
+    }
+    div {
+        color: rgb(234, 82, 82);
+        font-style: italic;
+    }
+    button {
+        background-color: rgb(255, 224, 67);
+        height: 2.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 2rem;
+    }
+}
+
+.btnCont {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    width: 95%;
+    button {
+        margin-bottom: 5rem;
+        width:11rem;
+        &:hover{
+            background-color: rgb(1, 1, 1);
+        }
+    }
+    .google-btn{
+        background-color: rgb(255, 81, 81);
+    }
+    .fb-btn{
+        img{
+            width: 2rem;
+        }
+        background-color: rgb(86, 104, 236);
+    }
+}
