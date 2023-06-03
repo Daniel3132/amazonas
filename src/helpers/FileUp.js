@@ -7,7 +7,7 @@ export const FileUp = async (file) => {
     formData.append('upload_preset', 'c7hsgwkx'); //conectar con cloudinary
     formData.append('file', file); // lo que voy a subir 
 
-   const resp= await fetch(urlCloudinary, {
+    const resp = await fetch(urlCloudinary, {
         method: 'POST',
         body: formData
     })

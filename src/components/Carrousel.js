@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { listProducts, delProduct } from '../Redux/actions/actionProductos'
-import Edit from './Edit'
 import Swal from 'sweetalert2'
+import { delProduct, listProducts } from '../Redux/actions/actionProductos'
+import { getIsAdmin } from '../helpers/admin'
+import Edit from './Edit'
 
 
 const Carrousel = ({ categoriaElegida }) => {
@@ -12,6 +13,8 @@ const Carrousel = ({ categoriaElegida }) => {
 
     const [modal, setModal] = useState(false)
     const [enviarDatosModal, setEnviarDatosModal] = useState([])
+    const [isAdmin, setIsAdmin] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     let { products } = useSelector(store => store.products)
 
@@ -19,7 +22,9 @@ const Carrousel = ({ categoriaElegida }) => {
 
     useEffect(() => {
         dispatch(listProducts())
-    }, [])
+        setIsAdmin(getIsAdmin())
+        setIsLoading(false)
+    }, [dispatch])
 
     const editar = (codigo) => {
         const traerProducto = products.find(t => t.codigo === codigo)
@@ -50,32 +55,35 @@ const Carrousel = ({ categoriaElegida }) => {
     }
 
     return (
-        <section className='carrousel'>
-            <h2>{categoriaElegida}</h2>
+        <>
+            {isLoading ? <div className='spinner'></div>
+                :
+                <section className='carrousel'>
 
-            <div className='CardsCont'>
-                {
-                    //parentesis para hacer el return
-                    products.map((p, index) => (
-                        <div key={index}>
-                            <img src={p.foto} alt="" />
-                            <div>
-                                <p>{p.nombre}</p>
-                                <Link to={`/detail/${p.nombre}`}><h2>Ver más</h2></Link>
-                            </div>
-                            <span>$ {p.precio}.00</span>
-                            <div>
-                                <button onClick={() => eliminarProductoFirebase(p.codigo)}>Eliminar</button>
-                                <button className='btnEditar' onClick={() => editar(p.codigo)}>Editar</button>
-                            </div>
+                    <>
+                        <h2>{categoriaElegida}</h2>
+                        <div className='CardsCont'>
+                            {
+                                products.map((p, index) => (
+                                    <div key={index}>
+                                        <img src={p.foto} alt="" />
+                                        <div>
+                                            <p>{p.nombre}</p>
+                                            <Link to={`/detail/${p.nombre}`}><h2>Ver más</h2></Link>
+                                        </div>
+                                        <span>$ {p.precio}.00</span>
+                                        <div>
+                                            <button style={{ display: isAdmin ? "" : "none" }} onClick={() => eliminarProductoFirebase(p.codigo)}>Eliminar</button>
+                                            <button className='btnEditar' onClick={() => editar(p.codigo)}>Editar</button>
+                                        </div>
+                                    </div>
+                                ))
+                            }
                         </div>
-                    ))
-                }
-            </div>
-            {
-                modal === true ? <Edit modal={enviarDatosModal} /> : ''
-            }
-        </section>
+                        {modal === true ? <Edit modal={enviarDatosModal} /> : ''}
+                    </>
+                </section>}
+        </>
     )
 }
 

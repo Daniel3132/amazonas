@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { useForm } from '../hooks/useForm';
 import { editProducts } from '../Redux/actions/actionProductos';
+import { useForm } from '../hooks/useForm';
 
 
 const Edit = ({ modal }) => {
@@ -41,19 +41,19 @@ const Edit = ({ modal }) => {
                         <Form onSubmit={() => handleSubmit()}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Nombre del Producto</Form.Label>
-                                <Form.Control type="text" name="nombre"  value={nombre} onChange={handleInputChange} />
+                                <Form.Control type="text" name="nombre" value={nombre} onChange={handleInputChange} />
 
                                 <Form.Label>Descripcion</Form.Label>
-                                <Form.Control type="text" name="descripcion"  value={descripcion} onChange={handleInputChange} />
+                                <Form.Control type="text" name="descripcion" value={descripcion} onChange={handleInputChange} />
 
                                 <Form.Label>Precio</Form.Label>
-                                <Form.Control type="text" name="precio"  value={precio} onChange={handleInputChange} />
-                                
+                                <Form.Control type="text" name="precio" value={precio} onChange={handleInputChange} />
+
                                 <Form.Label>Marca</Form.Label>
-                                <Form.Control type="text" name="marca"  value={marca} onChange={handleInputChange} />
-                                
+                                <Form.Control type="text" name="marca" value={marca} onChange={handleInputChange} />
+
                                 <Form.Label>Foto</Form.Label>
-                                <Form.Control type="text" name="foto"  value={foto} onChange={handleInputChange} />
+                                <Form.Control type="text" name="foto" value={foto} onChange={handleInputChange} />
 
                                 <Form.Label>Codigo</Form.Label>
                                 <Form.Control type="text" name="codigo" readOnly value={codigo} />

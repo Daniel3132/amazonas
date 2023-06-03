@@ -1,9 +1,9 @@
+import { Field, Form, Formik } from 'formik';
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { loginEmailPassAsync, loginFacebook, loginGoogle } from '../Redux/actions/actionLogin';
 import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
+import { loginEmailPassAsync, loginFacebook, loginGoogle } from '../Redux/actions/actionLogin';
 
 //----------------Validacion de cada input -----------
 const SignupSchema = Yup.object().shape({
@@ -30,7 +30,7 @@ export const Login = () => {
     const handleGoogle = () => {
         dispatch(loginGoogle())
     }
-    
+
     const handleFacebook = () => {
         dispatch(loginFacebook())
     }

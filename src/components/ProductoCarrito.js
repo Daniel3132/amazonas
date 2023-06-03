@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useForm } from '../hooks/useForm';
 import { Editarcarritos } from '../Redux/actions/actionCarrito';
+import { useForm } from '../hooks/useForm';
 
 
 
-const ProductoCarrito = ({producto}) => {
+const ProductoCarrito = ({ producto }) => {
 
     const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ const ProductoCarrito = ({producto}) => {
 
     useEffect(() => {
         setValues(producto)
-    }, [producto]);
+    }, [producto, setValues]);
 
 
     const handleSubmit = (e) => {

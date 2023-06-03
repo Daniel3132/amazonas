@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { EliminarAll, Eliminarcarritos } from '../Redux/actions/actionCarrito'
 import Swal from 'sweetalert2'
+import { EliminarAll, Eliminarcarritos } from '../Redux/actions/actionCarrito'
 import Payment from '../components/Payment'
 import ProductoCarrito from './ProductoCarrito'
 
@@ -49,7 +49,7 @@ const Carrito = () => {
         })
     }
 
-    const modal2abrir =(producto)=>{
+    const modal2abrir = (producto) => {
         setProductoEditar(producto)
         setModal2(true)
     }

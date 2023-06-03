@@ -1,10 +1,10 @@
-import React from 'react'
-import { FileUp } from '../helpers/FileUp';
-import { useForm } from '../hooks/useForm';
-import { useDispatch } from 'react-redux'
-import { addProduct } from '../Redux/actions/actionProductos';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import uuid from 'react-uuid';
 import Swal from 'sweetalert2';
+import { addProduct } from '../Redux/actions/actionProductos';
+import { FileUp } from '../helpers/FileUp';
+import { useForm } from '../hooks/useForm';
 
 const AddProduct = () => {
 
@@ -16,11 +16,10 @@ const AddProduct = () => {
         precio: '',
         categoria: '',
         foto: ''
-
     })
 
     const codigo = uuid()
-    const { nombre, descripcion, marca, precio, categoria, foto } = values
+    const { nombre, descripcion, marca, precio, categoria } = values
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -40,7 +39,7 @@ const AddProduct = () => {
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: 'Custom image',
-          })
+        })
     }
 
     const handleFileChange = (e) => {
@@ -56,13 +55,13 @@ const AddProduct = () => {
                 console.warn(error)
             })
 
-            Swal.fire({
-                position: 'top',
-                icon: 'success',
-                title: 'Agregando',
-                showConfirmButton: false,
-                timer: 1500
-              })
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Agregando',
+            showConfirmButton: false,
+            timer: 1500
+        })
     }
 
     return (

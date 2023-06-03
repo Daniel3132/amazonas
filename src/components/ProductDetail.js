@@ -1,10 +1,10 @@
-import React from 'react'
-import ReactImageMagnify from 'react-image-magnify'
+import React from 'react';
+import ReactImageMagnify from 'react-image-magnify';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams,useNavigate } from 'react-router-dom';
-import Carrousel from '../components/Carrousel'
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { Crearcarritos } from '../Redux/actions/actionCarrito';
-import Swal from 'sweetalert2'
+import Carrousel from '../components/Carrousel';
 
 const ProductDetail = () => {
 
@@ -16,28 +16,28 @@ const ProductDetail = () => {
 
     const producto = products.find(p => p.nombre === nombre)
 
-    const agregarCarrito=(pagoAhora)=>{
+    const agregarCarrito = (pagoAhora) => {
         dispatch(Crearcarritos({
             ...producto,
             cantidad: 1
         }))
-        if (pagoAhora==='pagoAhora'){
+        if (pagoAhora === 'pagoAhora') {
             navigate("/carrito")
-        }else{
+        } else {
             Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Agregado al carrito',
-            showConfirmButton: false,
-            timer: 1500
-          })
+                position: 'top-end',
+                icon: 'success',
+                title: 'Agregado al carrito',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
-        
+
     }
 
     return (
         <section>
-            <Link to={'/'}>Ir Atrás</Link>
+            <Link to={'/'} style={{marginLeft: "10px"}}>Ir Atrás</Link>
             <div className='ProductDetail'>
                 <div className='smallImgs'>
                     <img src={producto.foto} alt="" />
@@ -77,12 +77,12 @@ const ProductDetail = () => {
                     <p><strong>Llega:</strong>  dic 15-28</p>
                     <p>Puede que lo recibas despues de Navidad</p>
                     <button type='button' onClick={agregarCarrito}>Agregar al Carrito</button>
-                    <button onClick={()=>agregarCarrito('pagoAhora')}>Comprar Ahora</button>
+                    <button onClick={() => agregarCarrito('pagoAhora')}>Comprar Ahora</button>
                     <a href='#carrousel'>Transaccion Segura</a>
                 </div>
             </div>
             <h1>Productos Relacionados: </h1>
-            <Carrousel categoriaElegida={producto.categoria}/>
+            <Carrousel categoriaElegida={producto.categoria} />
         </section>
     )
 }

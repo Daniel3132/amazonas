@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { obtenerUsuarioStorage } from '../helpers/LocalStorage';
+import Swal from 'sweetalert2';
 import { logoutAsync } from '../Redux/actions/actionLogin';
-import Swal from 'sweetalert2'
+import { obtenerUsuarioStorage } from '../helpers/LocalStorage';
 import { useForm } from '../hooks/useForm';
 
 const NavBar = () => {

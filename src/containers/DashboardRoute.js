@@ -1,13 +1,13 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import AddProduct from '../components/AddProduct';
+import Carrito from '../components/Carrito';
+import Footer from '../components/Footer';
+import GeoLocation from '../components/GeoLocation';
 import Home from '../components/Home';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import AddProduct from '../components/AddProduct';
-import ProductDetail from '../components/ProductDetail';
-import Carrito from '../components/Carrito';
-import GeoLocation from '../components/GeoLocation';
 import Payment from '../components/Payment';
+import ProductDetail from '../components/ProductDetail';
 
 const DashboardRoute = () => {
     return (

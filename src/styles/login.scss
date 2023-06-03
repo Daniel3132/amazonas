@@ -40,18 +40,21 @@
     width: 95%;
     button {
         margin-bottom: 5rem;
-        width:11rem;
+        width:5rem;
         &:hover{
             background-color: rgb(1, 1, 1);
         }
     }
     .google-btn{
-        background-color: rgb(255, 81, 81);
+        background-color:white;
+        img{ 
+            width: 2rem;
+        }
     }
     .fb-btn{
         img{
             width: 2rem;
         }
-        background-color: rgb(86, 104, 236);
+        background-color:white;
     }
 }
